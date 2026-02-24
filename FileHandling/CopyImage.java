@@ -21,6 +21,7 @@ class CopyImage{
     }
     catch(IOException e){
         System.out.println("Error Opening Output File");
+        fin.close();
         return;
     }
     try{    
