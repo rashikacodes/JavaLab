@@ -1,25 +1,31 @@
-package LAB6;
 
 public class Bank {
 
-    static double rate = 5.0;   
-    double balance = 10000;     
-
+    String bankName = "State Bank"; 
+    static String branch = "Main Branch";  
 
     static class InterestCalculator {
 
-        static double calculateSI(double p, int t) {
-           
-            return (p * rate * t) / 100;
+        static double calculateSimpleInterest(double principal, double rate, double time) {
+            return (principal * rate * time) / 100;
+        }
+
+        void showDetails() {
+
+            // System.out.println(bankName);   // here we cannot access non-static members of the outer class without creating an instance of the outer class
+
+            System.out.println("Branch: " + branch);
+            Bank b = new Bank();
+            System.out.println("Bank Name: " + b.bankName);
         }
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
 
-        double si = Bank.InterestCalculator.calculateSI(5000, 2);
+        double si = InterestCalculator.calculateSimpleInterest(10000, 5, 2);
         System.out.println("Simple Interest: " + si);
+
+        InterestCalculator ic = new InterestCalculator();
+        ic.showDetails();
     }
-}
- {
-    
 }

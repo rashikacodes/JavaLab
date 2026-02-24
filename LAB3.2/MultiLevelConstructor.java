@@ -9,6 +9,7 @@ class Plate {
         length = sc.nextDouble();
         width = sc.nextDouble();
         System.out.println("Plate constructor executed");
+        sc.close();
     }
 }
 
@@ -22,6 +23,7 @@ class Box extends Plate {
         System.out.println("Enter height:");
         height = sc.nextDouble();
         System.out.println("Box constructor executed");
+        sc.close();
     }
 }
 
@@ -35,7 +37,9 @@ class WoodBox extends Box {
         System.out.println("Enter thickness:");
         thick = sc.nextDouble();
         System.out.println("WoodBox constructor executed");
+        sc.close();
     }
+
 
     void display() {
         System.out.println("\n--- Dimensions of WoodBox ---");
@@ -51,3 +55,4 @@ public class MultilevelConstructor {
         wb.display();
     }
 }
+
