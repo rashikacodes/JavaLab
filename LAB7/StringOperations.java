@@ -18,8 +18,11 @@ class StringOperations {
 
         System.out.print("\nEnter the second string for comparision : ");
         String s2 = sc.nextLine();
-        int diff = Math.abs(s1.charAt(0) - s2.charAt(0));
-        System.out.println("The difference between ASCII value is " + diff);
+        //comapreToIgnoreCase() method is used to compare two strings ignoring case differences.
+        if (s1.equals(s2))
+            System.out.println("Two strings are equal");
+        else
+            System.out.println("Two strings are not equal");    
 
         System.out.print("\nEnter the string to be inserted into first string : ");
         String s3 = sc.nextLine();
@@ -34,7 +37,6 @@ class StringOperations {
         String s5 = sc.nextLine();
         System.out.print("Enter a character : ");
         char ch = sc.next().charAt(0);
-
         int pos = s5.indexOf(ch);
         if (pos != -1)
             System.out.println("Position of entered character: " + pos);
