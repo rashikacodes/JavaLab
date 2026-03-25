@@ -1,101 +1,44 @@
-//1.Design a registration form using Swing with following components on it – Label, Textbox, Text area, Checkbox, Radio button and Button, Image.
-
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 
 public class RegistrationForm {
     public static void main(String[] args) {
+        JFrame f = new JFrame("Registration Form");
 
-        // Frame
-        JFrame frame = new JFrame("Registration Form");
-        frame.setSize(500, 600);
-        frame.setLayout(null);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        JLabel name = new JLabel("Name:");
+        name.setBounds(50,50,100,30);
 
-        // Image
-        ImageIcon icon = new ImageIcon("profile.jpeg"); // put image in same folder
-        JLabel imgLabel = new JLabel(icon);
-        imgLabel.setBounds(180, 10, 100, 100);
-        frame.add(imgLabel);
+        JTextField t1 = new JTextField();
+        t1.setBounds(150,50,150,30);
 
-        // Name Label & TextField
-        JLabel nameLabel = new JLabel("Name:");
-        nameLabel.setBounds(50, 130, 100, 30);
-        frame.add(nameLabel);
+        JLabel address = new JLabel("Address:");
+        address.setBounds(50,100,100,30);
 
-        JTextField nameField = new JTextField();
-        nameField.setBounds(150, 130, 200, 30);
-        frame.add(nameField);
+        JTextArea ta = new JTextArea();
+        ta.setBounds(150,100,150,60);
 
-        // Address Label & TextArea
-        JLabel addressLabel = new JLabel("Address:");
-        addressLabel.setBounds(50, 180, 100, 30);
-        frame.add(addressLabel);
+        JCheckBox cb = new JCheckBox("Accept Terms");
+        cb.setBounds(150,170,150,30);
 
-        JTextArea addressArea = new JTextArea();
-        addressArea.setBounds(150, 180, 200, 60);
-        frame.add(addressArea);
-
-        // Gender (Radio Buttons)
-        JLabel genderLabel = new JLabel("Gender:");
-        genderLabel.setBounds(50, 260, 100, 30);
-        frame.add(genderLabel);
-
-        JRadioButton male = new JRadioButton("Male");
-        male.setBounds(150, 260, 80, 30);
-
-        JRadioButton female = new JRadioButton("Female");
-        female.setBounds(230, 260, 100, 30);
+        JRadioButton r1 = new JRadioButton("Male");
+        JRadioButton r2 = new JRadioButton("Female");
+        r1.setBounds(150,210,70,30);
+        r2.setBounds(230,210,100,30);
 
         ButtonGroup bg = new ButtonGroup();
-        bg.add(male);
-        bg.add(female);
+        bg.add(r1); bg.add(r2);
 
-        frame.add(male);
-        frame.add(female);
+        JButton btn = new JButton("Submit");
+        btn.setBounds(150,260,100,30);
 
-        // Hobbies (CheckBoxes)
-        JLabel hobbyLabel = new JLabel("Hobbies:");
-        hobbyLabel.setBounds(50, 310, 100, 30);
-        frame.add(hobbyLabel);
+        f.add(name); f.add(t1);
+        f.add(address); f.add(ta);
+        f.add(cb);
+        f.add(r1); f.add(r2);
+        f.add(btn);
 
-        JCheckBox reading = new JCheckBox("Reading");
-        reading.setBounds(150, 310, 100, 30);
-
-        JCheckBox sports = new JCheckBox("Sports");
-        sports.setBounds(250, 310, 100, 30);
-
-        frame.add(reading);
-        frame.add(sports);
-
-        // Submit Button
-        JButton submitBtn = new JButton("Submit");
-        submitBtn.setBounds(180, 370, 100, 30);
-        frame.add(submitBtn);
-
-        // Button Action
-        submitBtn.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                String name = nameField.getText();
-                String address = addressArea.getText();
-
-                String gender = "";
-                if (male.isSelected()) gender = "Male";
-                if (female.isSelected()) gender = "Female";
-
-                String hobbies = "";
-                if (reading.isSelected()) hobbies += "Reading ";
-                if (sports.isSelected()) hobbies += "Sports";
-
-                JOptionPane.showMessageDialog(frame,
-                        "Name: " + name +
-                        "\nAddress: " + address +
-                        "\nGender: " + gender +
-                        "\nHobbies: " + hobbies);
-            }
-        });
-
-        frame.setVisible(true);
+        f.setSize(400,400);
+        f.setLayout(null);
+        f.setVisible(true);
     }
 }
