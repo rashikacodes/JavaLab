@@ -72,6 +72,7 @@ public class StudentRegistration extends JFrame implements ActionListener {
 
         submit.addActionListener(this);
 
+
         setVisible(true);
     }
 
@@ -94,7 +95,8 @@ public class StudentRegistration extends JFrame implements ActionListener {
             Connection con = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/studentdb",
                     "root",
-                    "rashika@god");
+                    ""
+                );
 
             PreparedStatement ps = con.prepareStatement(
                     "insert into students(email,username,password) values(?,?,?)");
